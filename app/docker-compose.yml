@@ -1,0 +1,25 @@
+services:
+  db:
+    build: ./mysql
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - db-store:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  web:
+    build: ./python
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - MYSQL_USER=django_user
+      - MYSQL_DATABASE=django_local
+      - MYSQL_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=secret
+    depends_on:
+      - db
+volumes:
+  db-store:
