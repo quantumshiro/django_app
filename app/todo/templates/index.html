@@ -47,8 +47,7 @@
                     </span>
                   </td>
                   <td>{{ task.due_date }}</td>
-                  <td><a href="{% url 'tasks.edit' id=current_folder_id task_id=task.id %}">編集</a>
-                  </td>
+                  <td><a href="{% url 'tasks.edit' id=current_folder_id task_id=task.id %}">編集</a></td>
                 </tr>
               {% endfor %}
             </tbody>
@@ -65,4 +64,5 @@
     </div>
   </div>
 {% endblock %}
+
 
