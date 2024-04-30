@@ -2,7 +2,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Folder, Task
-from .forms import FolderForm
+from .forms import FolderForm, TaskForm
 
 def index(request, id):
     #すべてのフォルダを取得する
@@ -29,3 +29,18 @@ def create_folder(request):
     else:
         form = FolderForm()
     return render(request, 'create_folders.html', {'form': form})
+
+def create_task(request, id):
+    #選ばれたフォルダを取得する
+    current_folder = get_object_or_404(Folder, id=id)
+    if request.method == "POST":
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.created_at = timezone.now()
+            task.folder_id = current_folder
+            task.save()
+            return redirect('tasks.index', id=current_folder.id)
+    else:
+        form = TaskForm()
+    return render(request, 'create_tasks.html', {'form': form}, {'id': current_folder.id})
