@@ -44,3 +44,16 @@ def create_task(request, id):
     else:
         form = TaskForm()
     return render(request, 'create_tasks.html', {'form': form}, {'id': current_folder.id})
+
+def edit_task(request, id, task_id):
+    #選ばれたタスクを取得する
+    task = get_object_or_404(Task, id=task_id)
+    if request.method == "POST":
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.save()
+            return redirect('tasks.index', id=task.folder_id.id)
+    else:
+        form = TaskForm(instance=task)
+    return render(request, 'edit.html', {'form': form}, {'task':task})
