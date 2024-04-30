@@ -43,7 +43,7 @@ def create_task(request, id):
             return redirect('tasks.index', id=current_folder.id)
     else:
         form = TaskForm()
-    return render(request, 'create_tasks.html', {'form': form}, {'id': current_folder.id})
+    return render(request, 'create_tasks.html', {'form': form, 'id': current_folder.id})
 
 def edit_task(request, id, task_id):
     #選ばれたタスクを取得する
@@ -56,4 +56,4 @@ def edit_task(request, id, task_id):
             return redirect('tasks.index', id=task.folder_id.id)
     else:
         form = TaskForm(instance=task)
-    return render(request, 'edit.html', {'form': form}, {'task':task})
+    return render(request, 'edit.html', {'form': form, 'task':task})
