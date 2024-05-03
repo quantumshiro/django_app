@@ -11,15 +11,6 @@ body:
     validations:
       required: true
   - type: textarea
-    id: name
-    attributes:
-      label: "担当者"
-      description: "担当者の名前を記載"
-      placeholder: |
-        担当者の名前を選択する。
-    validations:
-      required: true
-  - type: textarea
     id: content
     attributes:
       label: "タスク内容"
