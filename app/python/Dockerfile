@@ -10,3 +10,7 @@ COPY . /code/
 # Expose ports.
 EXPOSE 80
 EXPOSE 443
+
+COPY boot.sh /code/
+RUN chmod +x /code/boot.sh
+ENTRYPOINT ["./python/boot.sh"]
