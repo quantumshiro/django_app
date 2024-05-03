@@ -2,15 +2,6 @@ name: "バグ報告"
 description: "バグを報告するためのチケットです。"
 body:
   - type: textarea
-    id: reportName
-    attributes:
-      label: "報告者"
-      description: "報告者の名前を記載"
-      placeholder: |
-        報告者の名前を作成する。
-    validations:
-      required: true
-  - type: textarea
     id: asIsCurrent
     attributes:
       label: "As Is(今の状態)"
