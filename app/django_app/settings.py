@@ -29,6 +29,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '192.168.100.185',
     'django.todo-sample1324.jp',
+    'localhost',
 ]
 
 
