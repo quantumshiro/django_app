@@ -27,7 +27,11 @@ SECRET_KEY = 'django-insecure-@ja&&g0*)rrsn67x9jpsmcit)60i5uyoe!%(xdbt%&_&ymi+iz
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '192.168.100.185',
+    'django.todo-sample1324.jp',
+    'localhost',
+]
 
 
 # Application definition
