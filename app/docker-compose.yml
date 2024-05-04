@@ -3,8 +3,8 @@ services:
     platform: linux/x86_64
     image: mysql:5.7.33
     volumes:
-        - ./mysql/volume:/var/lib/mysql
-        - ./mysql/my.cnf:/etc/my.cnf
+      - ./mysql/volume:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/my.cnf
     environment:
       MYSQL_DATABASE: django_local
       MYSQL_USER: django_user
