@@ -10,7 +10,8 @@ services:
   web:
     build: ./python
     volumes:
-      - .:/code
+      - ./django_app:/code/django_app
+      - ./todo:/code/todo
     ports:
       - "8000:8000"
     environment:
