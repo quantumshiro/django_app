@@ -13,4 +13,4 @@ EXPOSE 443
 
 COPY boot.sh /code/
 RUN chmod +x /code/boot.sh
-ENTRYPOINT ["./python/boot.sh"]
+ENTRYPOINT ["./boot.sh"]
